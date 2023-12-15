@@ -1,11 +1,12 @@
 public class Heranca00 {
     public static void main(String[] args) {
         System.out.println("funfeia!");
-       Cachorro cao1 = new Cachorro("Clovis");
+        Cachorro cao1 = new Cachorro("Clovis","Vira-lata","Preto",2);
         System.out.println(cao1);
-        Cachorro cao2 = new Cachorro ("Adelino");
+        Cachorro cao2 = new Cachorro ("Adelino","Vira-lata","Preto",2);
         System.out.println(cao2);
-        Cachorro cao3 = new Cachorro ("Rubens");  
+        Cachorro cao3 = new Cachorro ("Rubens","Vira-lata","Preto",2);
+        System.out.println(cao3);  
     }
 
 }
@@ -19,6 +20,7 @@ abstract class Animal {
 
     public void fazBarulho() {
         System.out.println(this.onomatopeia);
+
     }
 
    public String toString () {  //Representa a classe atual em forma de string;//
@@ -33,12 +35,13 @@ abstract class Animal {
 }
 
 class Cachorro extends Animal {
-    Cachorro(String nome){ // metodo construtor, o que define o cão !
-        this.nome = nome;
-        this.onomatopeia = "au,au";
-        this.raca = "vira lata";
-        this.cor = "preto";
-        this.idade = 2;
+    Cachorro(String nome, String raca, String cor, Integer idade){ // metodo construtor, o que define o cão !
+      this.onomatopeia = "*som de cachorro";
+      this.nome = nome;
+      this. raca = raca;
+      this.cor = cor;
+      this.idade = idade;
+      
 
     }
 }
