@@ -1,17 +1,11 @@
 public class Heranca00 {
     public static void main(String[] args) {
         System.out.println("funfeia!");
-        Pastor fred = new Pastor();
-        fred.fazBarulho();
-        fred.descrever();
-        
-        Bulldog rufus = new Bulldog();
-        rufus.fazBarulho();
-        rufus.descrever();
-
-        Salsicha vina = new Salsicha();
-        vina.fazBarulho();
-        vina.descrever();
+       Cachorro cao1 = new Cachorro("Clovis");
+        System.out.println(cao1);
+        Cachorro cao2 = new Cachorro ("Adelino");
+        System.out.println(cao2);
+        Cachorro cao3 = new Cachorro ("Rubens");  
     }
 
 }
@@ -27,47 +21,28 @@ abstract class Animal {
         System.out.println(this.onomatopeia);
     }
 
-    public void descrever() {
-        System.out.println("Raça: " + this.raca);
-        System.out.println("Idade: " + this.idade);
-        System.out.println("Cor: " + this.cor);
-        System.out.println("Nome: "+ this.nome);
-
+   public String toString () {  //Representa a classe atual em forma de string;//
+    return
+        "Nome: "+this.nome+"\n"+
+        "Raça: "+this.raca+ "\n"+        
+        "cor:"  +this.cor+ "\n"+
+        "idade: "+this.idade+ "\n"+
+        "Som: " +this.onomatopeia;
     }
 
 }
 
 class Cachorro extends Animal {
-    Cachorro() { // metodo construtor, o que define o cão !
-        this.onomatopeia = "au au";
+    Cachorro(String nome){ // metodo construtor, o que define o cão !
+        this.nome = nome;
+        this.onomatopeia = "au,au";
+        this.raca = "vira lata";
+        this.cor = "preto";
+        this.idade = 2;
+
     }
 }
 
-class Bulldog extends Cachorro {
-    Bulldog(){
-    this.raca = "Bulldog";
-    this.cor = "Preto";
-    this.nome = "Rufus";
-    this.idade = 2;
-    }
-}
-class Salsicha extends Cachorro{
-    Salsicha(){
-    this.raca = "Salsicha";
-    this.cor = "Preto";
-    this.nome = "Vina";
-    this.idade = 2;
-    }
-}
-class Pastor extends Cachorro{
-    Pastor(){
-    this.raca = "Pastor-Alemão";
-    this.cor = "Preto e marrom";
-    this.nome = "Fred";
-    this.idade = 9;
-    }
-
-}
 
 
 
