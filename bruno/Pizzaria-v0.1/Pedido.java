@@ -1,32 +1,45 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido{
+public class Pedido {
     private int id = 0;
     private double txEntrega = 0.0;
     private String cliente = "";
-    private List<ItemDoPedido> itensDoPedido = new ArrayList();
+    private ItemDoPedido itemDoPedido;
 
-    public void addItemDoPedido(ItemDoPedido item){
-        this.itensDoPedido.add(item);
+    public void addItemDoPedido(ItemDoPedido item) {
+        this.itemDoPedido = item;
     }
-    public void setCliente(String cliente){
+
+    public void setCliente(String cliente) {
         this.cliente = cliente;
+
     }
-    public void setTxEntrega(Double txEntrega){
+
+
+    public void setTxEntrega(Double txEntrega) {
         this.txEntrega = txEntrega;
     }
-    public double getTotal(){
-        double total = 0;
-        for(int i = 0; i < this.itensDoPedido; i++){
-            ItemDoPedido item = this.itensDoPedido.get(i);
-            total += item.getValor();
-        }
-        return total;
+
+    public double getTotal() {
+        return this.txEntrega+this.itemDoPedido.getValor();
     }
-    public void imprimir(){
-        System.out.println("Nome:\t" + this.cliente);
-        System.out.println("Tx. Entrega:\t" + this.txEntrega);
-        System.out.println("Total:\t");
+
+   
+    
+    public void imprimir() {
+        System.out.println("---------------------------------------");
+        System.out.println("Nome: "+ this.cliente);
+        System.out.println("---------------------------------------");
+        System.out.println("Sabor Pizza: "+this.itemDoPedido.getSabor());
+        System.out.println("Tipo: "+this.itemDoPedido.getTipo());
+        System.out.println("----------------------------------------");
+        System.out.println( "Valor R$:"+this.itemDoPedido.getValor());
+        System.out.println("----------------------------------------");
+        System.out.println("Tx Entrega R$:" + this.txEntrega);
+        System.out.println("---------------------------------------");
+        System.out.println("Total R$: "+this.getTotal());
+        System.out.println("---------------------------------------");
+        System.out.println("---------------------------------------");
     }
 }
