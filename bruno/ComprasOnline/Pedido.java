@@ -9,22 +9,12 @@ public class Pedido {
     private double frete;
     private String endereco;
     private String pagamento;
-  //  private Produto listaProdutos;
 
-   // private ArrayList<String> lista = new ArrayList<>();
-
-  //  public void setListaProdutos(Produto listaProdutos) {
-     //   this.listaProdutos = listaProdutos;
-   // }
 
     public void setData(LocalDateTime data) {
         this.data = data;
     }
 
-
-   // public void setLista(ArrayList<String> lista) {
-       // listaProdutos.add(listaProdutos.getNome());
-    //}
 
     public String getEndereco() {
         return endereco;
