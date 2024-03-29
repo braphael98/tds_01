@@ -2,39 +2,37 @@ import java.util.Scanner;
 
 public class Pizzaria {
     public static void main(String[] args) {
-        System.out.println("Seja bem-viado a pizza da boa");
+        System.out.println("*************************");
+        System.out.println("* Bem vindo a Pizza do luigi *");
+        System.out.println("*************************");
+        System.out.println();
 
         Scanner scan = new Scanner(System.in);
 
-        Pedido pedido = new Pedido();
-        
-        String continuar = "s";
+        Pedido  pedido = new Pedido();
+
+        String continuar;
         do {
             ItemDoPedido item = new ItemDoPedido();
-            System.out.print("Informe o tipo da pizza:");
-            item.setTipo(scan.nextLine());
+
+            System.out.print("Informe o tipo de pizza: ");
+            item.setTipo(scan.nextLine().trim());
 
             System.out.print("Informe o sabor da pizza: ");
-            item.setSabor(scan.nextLine());
+            item.setSabor(scan.nextLine().trim());
 
-            System.out.print("Informe o valor da pizza: ");
-            item.setValor(scan.nextDouble());
-            scan.nextLine();
-            
-            pedido.addItemDoPedido(item);
+            pedido.adicionarItemDoPedido(item);
 
-            System.out.println("Deseja continuar ?");
+            System.out.print("mais alguma coisa? ");
             continuar = scan.nextLine();
         } while (!continuar.equalsIgnoreCase(""));
 
-       
+        System.out.print("Nome do cliente: ");
+        pedido.setCliente(scan.nextLine().trim());
 
-        System.out.print("Informe o nome do cliente: ");
-        scan.nextLine();
-        pedido.setCliente(scan.nextLine());
+        System.out.print("Informe o bairro: ");
+        pedido.setBairro(scan.nextLine());
 
-        System.out.print("Informe a taxa da entrega:");
-        pedido.setTxEntrega(scan.nextDouble());
 
         pedido.imprimir();
     }
