@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -10,8 +11,7 @@ public class Main {
         Usuario user1 = new Usuario();
         String continuar = "";
 
-       // pedido.setListaProdutos(produto);
-
+        // pedido.setListaProdutos(produto);
 
         System.out.println("Bem vindo a compras online.com");
 
@@ -24,9 +24,19 @@ public class Main {
             produto.setNome(sc.nextLine());
             System.out.println("Descreva o produto: ");
             produto.setDescricao(sc.nextLine());
-            System.out.println("Digite o preço do produto R$: ");
-            produto.setPreco(sc.nextDouble());
-            sc.nextLine();
+            Boolean digitouErrado = true;
+            do {
+                try {
+                    System.out.println("Digite o preço do produto R$: ");
+                    produto.setPreco(sc.nextDouble());
+                    digitouErrado = false;
+                } catch (InputMismatchException ex) {
+                    digitouErrado = true;
+                    System.out.println("-!--Digite um valor valido--!-");
+                }
+                sc.nextLine();
+            } while (digitouErrado);
+
             System.out.println("Continuar?");
             continuar = sc.nextLine();
         } while (!continuar.equalsIgnoreCase(""));
@@ -35,7 +45,7 @@ public class Main {
         System.out.println("Informações de pagamento (PIX | CREDITO | DEBITO ) ");
         pedido.setPagamento(sc.nextLine());
 
-        pedido.imprimir(user1,produto);
+        pedido.imprimir(user1, produto);
 
     }
 }
