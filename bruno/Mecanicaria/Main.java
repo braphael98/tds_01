@@ -8,10 +8,7 @@ public class Main{
         Cliente cliente = new Cliente();
         Veiculo veiculo = new Veiculo();
         Servico servico = new Servico();
-        OrdemServico OrdServico = new OrdemServico();
-
-
-
+        OrdemServico ordServico = new OrdemServico();
 
         System.out.print("Digite o nome do cliente: ");
         cliente.setNome(sc.nextLine());
@@ -26,8 +23,19 @@ public class Main{
         veiculo.setDescricao(sc.nextLine());
         System.out.print("Informe o ano do veiculo: ");
         veiculo.setAno(sc.nextInt());
-        System.out.println("Informe a placa do veiculo: ");
+        sc.nextLine();
+        System.out.print("Informe a placa do veiculo: ");
         veiculo.setPlaca(sc.nextLine());
+        System.out.print("Descreva o servicos: ");
+        servico.setDescricao(sc.nextLine());
+        System.out.print("Valor do serviço: ");
+        servico.addValor(sc.nextDouble());
+
+        sc.nextLine();
+        ordServico.addServico(servico);
+        ordServico.setCliente(cliente);
+        ordServico.setVeiculo(veiculo);
+        ordServico.imprimir();
 
 
 
