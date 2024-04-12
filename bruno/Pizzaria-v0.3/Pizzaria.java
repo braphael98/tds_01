@@ -10,6 +10,9 @@ public class Pizzaria {
         String operador = "";
         Scanner scan = new Scanner(System.in);
         Pedido pedido = new Pedido();
+        Faturamento faturamento = new Faturamento();
+        ItemDoPedido item = new ItemDoPedido();
+        faturamento.addPedidos(pedido);
         String continuar;
 
         while (true) {
@@ -24,8 +27,6 @@ public class Pizzaria {
                 case "1":
                     do {
 
-                        ItemDoPedido item = new ItemDoPedido();
-
                         System.out.print("Informe o tipo de pizza: ");
                         item.setTipo(scan.nextLine().trim());
 
@@ -38,6 +39,8 @@ public class Pizzaria {
                         continuar = scan.nextLine();
                     } while (!continuar.equalsIgnoreCase(""));
 
+                   
+
                     System.out.print("Nome do cliente: ");
                     pedido.setCliente(scan.nextLine().trim());
 
@@ -47,6 +50,10 @@ public class Pizzaria {
                     pedido.imprimir();
 
                     break;
+                case "2":
+                    faturamento.imprimirPedidos();
+                    break;
+                    
 
                 default:
                 System.out.println("Digite uma opção Valida !");

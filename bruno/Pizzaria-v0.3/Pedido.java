@@ -16,11 +16,10 @@ public class Pedido {
         return this.itemDoPedido.get(index);
     }
 
-
-    //METODO
+    // METODO
     public void addTotal(Double valor) {
         this.total += valor;
-        //PEGAR O TOTAL MAIS O VALOR DA PIZZA E SOMAR !
+        // PEGAR O TOTAL MAIS O VALOR DA PIZZA E SOMAR !
     }
 
     public Double getTotal() {
@@ -35,16 +34,12 @@ public class Pedido {
         return this.cliente;
     }
 
-
     public Double calcularFrete() {
-        if (this.getBairro().equalsIgnoreCase("Centro")) {
+        if (this.getBairro().equalsIgnoreCase("centro")) {
             return 10.00;
-        }
-        else if (this.getBairro().equalsIgnoreCase("Periferia")){
+        } else if (this.getBairro().equalsIgnoreCase("periferia")) {
             return 15.00;
-        }
-        else
-        {
+        } else {
             return 20.00;
         }
     }
@@ -79,4 +74,23 @@ public class Pedido {
         System.out.println("--------------------------------------------");
     }
 
+    public void imprimirResumo() {
+        System.out.println("-------Faturamento -----");
+        System.out.println(" Cliente     : " + this.cliente);
+        for (int i = 0; i < this.itemDoPedido.size(); i++) {
+            if (i > 0) {
+                System.out.println();
+            }
+            System.out.println(" Tipo        : " + this.getItemDoPedido(i).getTipo());
+            System.out.println(" Sabor       : " + this.getItemDoPedido(i).getSabor());
+            System.out.println(" Valor       : " + this.getItemDoPedido(i).getValor());
+        }
+        System.out.println("--------------------------");
+    }
+
+    public void calculo(){
+        // this.getItemDoPedido().getValor();
+        // this.total();
+        // this.calcularFrete();
+    }
 }

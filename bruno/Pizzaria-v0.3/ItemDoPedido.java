@@ -12,7 +12,7 @@ public class ItemDoPedido {
 
 
     public Double getValor() {
-        if(this.getTipo().equalsIgnoreCase("Tradicional")){
+        if(this.getTipo().equalsIgnoreCase("tradicional")){
             return 40.0;
         }else return 50.0;
     }
@@ -22,5 +22,7 @@ public class ItemDoPedido {
     }
     public String getSabor() {
         return this.sabor;
+        
     }
+
 }
